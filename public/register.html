@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>创建帐户</title>
+		<link rel="stylesheet" type="text/css" href="CSS/Page_head_end.css" />
+		<link rel="stylesheet" type="text/css" href="CSS/register.css" />
+		<link rel="icon" href="assassin.ico" type="image/x-icon"/>
+		<script src="./javascript/register.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id='frame'>
+			<div id='top' class="">
+				<div class="content">
+					<div class="logo_size">
+						<a href="index.html">
+							<img src="img/logo.png" id="logo_img"></a>
+					</div>
+					<div class="top_link a-text-style">
+						<a href="" class="four_Navigation">商店</a>
+						<a href="" class="four_Navigation">社区</a>
+						<a href="" class="four_Navigation">关于</a>
+						<a href="" class="four_Navigation">客服</a>
+					</div>
+					<div id="login-lang">
+						<div class="login a-text-style font-size-14px">
+							<a href="login.html">登录</a>
+							&nbsp;|&nbsp;
+							<a href="register.html">注册</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='mid_div' class="v12c6">
+				<div class="register_content">
+					<div class="return_home a-text-style">
+						<a href="index.html">返回主页</a>
+					</div>
+					<div></div>
+					<div class="mid_text">
+						创建账户
+					</div>
+					<div id="error_display" style="display: none;"></div>
+					<div class="bg-color">
+						<div class="form_content">
+							<div class="mid_form">
+								<label for="uname">用户名:</label>
+								<input type="text" name="uname" id="uname" maxlength="16"/><br>
+								<label for="upwd">密码:</label><br>
+								<input type="password" name="upwd" id="upwd" maxlength="16"/><br>
+								<div>
+									<label for="email">e-mail:</label>
+									<input type="email" name="email" id="email" maxlength="25"/><br>
+									<label class="country_select" for="country">您的居住地</label><br>
+									<select name="country" id="country" class="country">
+										<option value="China">China</option>
+										<option value="USA">USA</option>
+										<option value="Germany">Germany</option>
+									</select>
+								</div>
+							</div>
+							<div class="form_notes">
+								<p>您的账号用于确认购买并帮助您管理对NinthArt帐户的访问,</p><br>
+								<p>请牢记您的密码，并且使用6-18位的字符来设置它</p><br><br><br>
+								<p>您的邮箱是帮助您找回密码的唯一方式，请务必填写正确。</p>
+							</div>
+							<div class="mid_float_none"></div>
+						</div>
+						<div id="Agreement">
+							<p id="instructions">
+								请复查以上协议，并通过选择页面底部的复选框同意此协议。 您必须同意这些协议条款才能继续。
+							</p><br>
+							<div class="Agreement_content">
+								没有什么协议规定，此文本协议纯属商业装B！
+								但您还是需要点选下面的同意框，才能完成注册。
+							</div>
+						</div>
+						<div class="ssa_agree">
+							<input type="checkbox"  id="i_agree" />
+							<label for="i_agree">我同意并且已年满 13 周岁</label>
+						</div>
+						<div id="button">
+							<button type="button" class="register" onclick="register()">注册</button>
+						</div>
+						<table></table>
+					</div>
+				</div>
+			</div>
+		<!-- 页尾 -->
+		<div id="footer" class="text-style">
+			<table></table>
+			<div class="footer_content">
+				<div class="footer_logo">
+					<img src="img/logo.png" alt="logo">
+				</div>
+				<div class="footer_text size12-8f98A0">
+					©2020 NinthArt。保留所有权利。所有商标均为其在NinthArt/地区的各自持有者所有。
+					<div class="a-text-style">
+						参考及借鉴网站（所有解释权归NinthArt所有）
+						<a href="https://www.3dmgame.com/" target="_blank">3DMGame</a>
+						&nbsp;|&nbsp;
+						<a href="https://store.steampowered.com/" target="_blank">Steam</a>
+						&nbsp;|&nbsp;
+						<a href="https://www.gamersky.com/" target="_blank">游民星空</a>
+						&nbsp;|&nbsp;
+						<a href="https://www.17173.com/" target="_blank">17173</a>
+					</div>
+				</div>
+				<div class="NinthArt_links a-text-style">
+					<a href="">关于NinthArt</a>
+					&nbsp;&nbsp;
+					<span class="Thank">网页作者联系方式 phone : 13637401397 &nbsp;&nbsp;
+						Wechat : a04192715</span>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
