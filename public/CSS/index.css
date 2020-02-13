@@ -176,7 +176,7 @@ div.Search_box {
 
 div.bg_one {
 	position: relative;
-	background-image: url(../img/colored_body_top2.png);
+	background-image: url(../img/background-image/colored_body_top2.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -196,7 +196,7 @@ div.Rotation_chart_one {
 }
 .carousel_bgimg{
 	display: flex;
-	background-image: url(../img/background_maincap_2.jpg);
+	background-image: url(../img/background-image/background_maincap_2.jpg);
 	background-repeat: no-repeat;
 	background-position: top right;
 	opacity: 1;
@@ -406,7 +406,7 @@ div.indicators {
 	margin-right: 11px;
 }
 .carousel_two_area{
-	background-image: url(../img/background_spotlight.jpg);
+	background-image: url(../img/background-image/background_spotlight.jpg);
 	height: 390px;
 	box-shadow: 0 0 5px #000000;
 	position: relative;
@@ -422,7 +422,7 @@ div.indicators {
 	font-size: 12px;
 	width: 274px;
 	bottom: 0;
-	background: url(../img/background_spotlight.jpg);
+	background: url(../img/background-image/background_spotlight.jpg);
 }
 .carousel_text_body{
 	font-weight: 300;
