@@ -1,0 +1,49 @@
+.order-content{
+    width: 940px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+.order-title{
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+.order-title h1{
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+.order-item{
+    display: flex;
+    position: relative;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-bottom: 3px;
+}
+.item-img img{
+    width: 184px;
+    height: 69px;
+    border: 2px solid #000000;
+}
+.item-title{
+    position: absolute;
+    left: 250px;
+    top:20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+}
+.item-time{
+    position: absolute;
+    left: 550px;
+    top: 42px;
+    font-size: 11px;
+    color: #8f98a0;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 300;
+}
+.item-price{
+    position: absolute;
+    right: 20px;
+    top: 42px;
+    color: #9e9995;
+    font-size: 11px;
+}

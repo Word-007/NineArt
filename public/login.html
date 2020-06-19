@@ -1,194 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>登录</title>
-		<link rel="stylesheet" type="text/css" href="CSS/comm.css" />
-		<link rel="stylesheet" type="text/css" href="CSS/login.css" />
-		<link rel="icon" href="img/N.ico" type="image/x-icon" />
-		<script src="javascript/login.js" type="text/javascript" charset="utf-8"></script>
-	</head>
-	<body>
-		<div id='frame'>
-			<div id='top'>
-				<div class="content">
-					<div class="logo_size">
-						<a href="index.html">
-							<img src="img/logo.png" id="logo_img"></a>
-					</div>
-					<div class="top_link a-text-style">
-						<a href="" class="four_Navigation">商店</a>
-						<a href="" class="four_Navigation">社区</a>
-						<a href="" class="four_Navigation">关于</a>
-						<a href="" class="four_Navigation">客服</a>
-					</div>
-					<div id="login-lang">
-						<div class="login a-text-style font-size-14px">
-							<a href="login.html">登录</a>
-							&nbsp;|&nbsp;
-							<a href="register.html">注册</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="mid_content">
-				<div class="mid_top">
-					<div class="Navigation_bar">
-						<div class="home_body_NinthArt">
-							<div class="NinthArt_content">
-								<div class='tab' id="shop_tab">
-									<span class="pulldown">
-										<a href="" class='pulldown_desktop'>您的商店</a>
-										<span></span>
-									</span>
-									<div class="popup" id="shop_popup" style="visibility: visible;top: 35px;left: 0px; display: none;">
-										<div class="popup_content">
-											<a href="#" class='popup_item'>商店主页</a>
-											<a href="#" class='popup_item'>最近看过的</a>
-											<a href="#" class='popup_item'>最近更新</a>
-										</div>
-									</div>
-								</div>
-								<div class='tab' id="game_tab">
-									<span class="pulldown">
-										<a href="" class='pulldown_desktop'>游戏</a>
-										<span></span>
-									</span>
-									<div class="popup" id="game_popup" style="visibility: visible;top: 35px;left: 100px; display: none;">
-										<div class="popup_content">
-											<p style="color: #4f94bc;font-size: 11px;text-align: center;padding-bottom: 8px;">按类型浏览：</p>
-											<a href="#" class='popup_item'>动作</a>
-											<a href="#" class='popup_item'>体育</a>
-											<a href="#" class='popup_item'>冒险</a>
-											<a href="#" class='popup_item'>射击</a>
-											<a href="#" class='popup_item'>策略</a>
-											<a href="#" class='popup_item'>角色扮演</a>
-											<a href="#" class='popup_item'>大型多人在线</a>
-										</div>
-									</div>
-								</div>
+    <head>
+        <meta charset="utf-8">
+        <title>登录</title>
+        <link rel="stylesheet" type="text/css" href="CSS/comm.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/login.css" />
+        <link rel="icon" href="img/N.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <div id='app'>
+            <div id='top'>
+                <div class="content">
+                    <div class="logo_size">
+                        <a href="index.html">
+                            <img src="img/logo.png" id="logo_img"></a>
+                    </div>
+                    <div class="top_link a-text-style">
+                        <a href="" class="four_Navigation">商店</a>
+                        <a href="" class="four_Navigation">社区</a>
+                        <a href="" class="four_Navigation">关于</a>
+                        <a href="" class="four_Navigation">客服</a>
+                    </div>
+                    <div id="login-lang">
+                        <div class="login a-text-style font-size-14px">
+                            <a href="login.html" v-if="!localStorage">登录</a>
+                            <a href="javascript:;" v-else>
+                                <img src="img/user.jpg" class="avatar">&nbsp;
+                                <span v-text="localStorage"></span>
+                            </a>
+                            &nbsp;|&nbsp;
+                            <a href="register.html" v-if="!localStorage">注册</a>
+                            <a href="javascript:;" v-if="localStorage" @click="clearStorage">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mid_content">
+                <div class="mid_top">
+                    <div class="Navigation_bar">
+                        <div class="home_body_NinthArt">
+                            <div class="cart-link" v-if="StorageUid">
+                                <a href="order.html" class="order">我的订单</a>
+                                <a href="cart.html" class="cart">我的购物车</a>
+                            </div>
+                            <div class="NinthArt_content">
+                                <div class='tab' id="shop_tab">
+                                    <span class="pulldown">
+                                        <a href="javascript:;" class='pulldown_desktop'>你的NinthArt</a>
+                                        <span></span>
+                                    </span>
+                                    <div class="popup" id="shop_popup" style="visibility: visible;top: 35px;left: 0px; display: none;">
+                                        <div class="popup_content">
+                                            <a href="index.html" class='popup_item'>商店主页</a>
+                                            <a href="cart.html" class='popup_item'>您的购物车</a>
+                                            <a href="order.html" class='popup_item'>您的订单</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='tab' id="game_tab">
+                                    <span class="pulldown">
+                                        <a href="apps.html?tid=4" class='pulldown_desktop'>动作游戏</a>
+                                        <span></span>
+                                    </span>
+                                    <div class="popup" id="game_popup" style="visibility: visible;top: 35px;left: 125px; display: none;width: 100px;">
+                                        <div class="popup_content">
+                                            <a href="app.html?gid=1" class='popup_item'>只狼</a>
+                                            <a href="apps.html?term=魂" class='popup_item'>魂系列</a>
+                                            <a href="apps.html?term=devil" class='popup_item'>鬼泣系列</a>
+                                            <a href="apps.html?tid=5" class='popup_item'>ARPG</a>
+                                        </div>
+                                    </div>
+                                </div>
 
-								<div class='tab' id="software_tab">
-									<span class="pulldown">
-										<a href="" class='pulldown_desktop'>软件</a>
-										<span></span>
-									</span>
-									<div class="popup" id="software_popup" style="visibility: visible;top: 35px;left: 175px; display: none;">
-										<div class="popup_content">
-											<a href="#" class='popup_item'>动画制作和建模</a>
-											<a href="#" class='popup_item'>实用工具</a>
-											<a href="#" class='popup_item'>教育</a>
-											<a href="#" class='popup_item'>游戏开发</a>
-											<a href="#" class='popup_item'>照片编辑</a>
-											<a href="#" class='popup_item'>网络出版</a>
-											<a href="#" class='popup_item'>设计与插画</a>
-											<a href="#" class='popup_item'>音频制作</a>
-										</div>
-									</div>
-								</div>
+                                <div class='tab' id="software_tab">
+                                    <span class="pulldown">
+                                        <a href="apps.html?tid=2" class='pulldown_desktop'>射击游戏</a>
+                                        <span></span>
+                                    </span>
+                                    <div class="popup" id="software_popup" style="visibility: visible;top: 35px;left: 225px;display: none;">
+                                        <div class="popup_content">
+                                            <a href="apps.html?term=cod" class='popup_item'>COD</a>
+                                            <a href="apps.html?tid=3" class='popup_item'>第三人称射击</a>
+                                            <a href="apps.html?tid=7" class='popup_item'>多人在线</a>
+                                            <a href="app.html?gid=22" class='popup_item'>大逃杀</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='tab' id="hardware_tab">
+                                    <span class="pulldown">
+                                        <a href="apps.html?tid=1" class='pulldown_desktop'>角色扮演</a>
+                                        <span></span>
+                                    </span>
+                                    <div class="popup" id="hardware_popup" style="visibility: visible;top: 35px;left: 325px; display: none;">
+                                        <div class="popup_content">
+                                            <a href="app.html?gid=23" class='popup_item'>火炬之光</a>
+                                            <a href="app.html?gid=12" class='popup_item'>暗黑血统</a>
+                                            <a href="apps.html?term=巫师" class='popup_item'>巫师系列</a>
+                                            <a href="apps.html?tid=12" class='popup_item'>黑暗之魂系列</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="apps.html?tid=12" class='tab'><span>硬核游戏</span></a>
+                                <a href="apps.html?tid=6" class='tab'><span>即时战略</span></a>
+                                <div class="Search_box">
+                                    <input type="text" v-model="term" placeholder="搜索商店" @keyup="query($event)" onfocus="if(placeholder=='搜索商店'){placeholder=''}"
+                                        onblur="if(value==''){placeholder='搜索商店'}" />
+                                    <a :href="'apps.html?term='+term" class="Search_img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-								<div class='tab' id="hardware_tab">
-									<span class="pulldown">
-										<a href="" class='pulldown_desktop'>硬件</a>
-										<span></span>
-									</span>
-									<div class="popup" id="hardware_popup" style="visibility: visible;top: 35px;left: 250px; display: none;">
-										<div class="popup_content">
-											<a href="#" class='popup_item'>Valve Index</a>
-											<a href="#" class='popup_item'>Steam 控制器</a>
-											<a href="#" class='popup_item'>Steam 流式盒</a>
-											<a href="#" class='popup_item'>HTC Vive</a>
-										</div>
-									</div>
-								</div>
-								<a href="#" class='tab'><span>新闻</span></a>
-								<a href="#" class='tab'><span>NinthArt实验室</span></a>
-								<div class="Search_box">
-									<input type="text" placeholder="搜索商店" onfocus="if(placeholder=='搜索商店'){placeholder=''}" onblur="if(value==''){placeholder='搜索商店'}" />
-									<a href="#" class="Search_img">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="login_content a-text-style font-size-12px">
-					<div id="error_display"></div>
-					<div id="back_color">
-						<div class="input_content">
-							<h2 class="head_text">登录</h2><br>
-							<p>到先有的NinthArt账号</p><br>
-							<label for="uname">NinthArt账号</label><br>
-							<input type="text" id="uname" /><br>
-							<label for="upwd">密码</label><br>
-							<input type="password" id="upwd" /><br>
-							<input type="checkbox" id="remember" />
-							<label for="remember">在这台电脑上记住我</label>
-						</div>
-						<div class="login_right">
-							<h2 class="head_text">创建</h2><br>
-							<p>一个免费的新帐户</p><br>
-							<p>欢迎免费加入及轻松使用。继续创建
-								NinthArt 帐户并获取 NinthArt - 适合 PC 和
-								Mac 玩家的前沿数字解决方案。</p>
-						</div>
-						<div class="button_bottom">
-							<button class="login_button" onclick="login()">登录</button>
-							<button class="reg_button"><a href="register.html">加入NinthArt</a></button>
-						</div>
-						<table></table>
-					</div>
-					<a href="" style="color: white;font-size: 12px;">忘记密码？</a>
-					<div class="rightcol">
-						<div class="right_content">
-							<div class="right_text">
-								<table></table>
-								<ul>为什么加入NinthArt
-									<li>购买和下载完整零售游戏</li>
-									<li>加入 NinthArt 社区</li>
-									<li>游戏时与好友聊天</li>
-									<li>在任何电脑上都能玩</li>
-									<li>安排游戏、比赛或 LAN 聚会</li>
-									<li>获取自动游戏更新以及更多！</li>
-								</ul>
-								<img src="img/why_join_preview.png">
-							</div>
-						</div>
-						<div id="hidde" class="hidde">
-							<a href="">了解更多NinthArt的相关信息</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 页尾 -->
-			<div id="footer" class="text-style">
-				<table></table>
-				<div class="footer_content">
-					<div class="footer_logo">
-						<img src="img/logo.png" alt="logo">
-					</div>
-					<div class="footer_text size12-8f98A0">
-						©2020 NinthArt。保留所有权利。所有商标均为其在NinthArt/地区的各自持有者所有。
-						<div class="a-text-style">
-							参考及借鉴网站（所有解释权归NinthArt所有）
-							<a href="https://www.3dmgame.com/" target="_blank">3DMGame</a>
-							&nbsp;|&nbsp;
-							<a href="https://store.steampowered.com/" target="_blank">Steam</a>
-							&nbsp;|&nbsp;
-							<a href="https://www.gamersky.com/" target="_blank">游民星空</a>
-							&nbsp;|&nbsp;
-							<a href="https://www.17173.com/" target="_blank">17173</a>
-						</div>
-					</div>
-					<div class="NinthArt_links a-text-style">
-						<a href="">关于NinthArt</a>
-						&nbsp;&nbsp;
-						<span class="Thank">网页作者联系方式 phone : 13637401397 &nbsp;&nbsp;
-							Wechat : a04192715</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+                    </div>
+                </div>
+                <div class="login_content a-text-style font-size-12px">
+                    <div id="error_display"></div>
+                    <div id="back_color">
+                        <div class="input_content">
+                            <h2 class="head_text">登录</h2><br>
+                            <p>到先有的NinthArt账号</p><br>
+                            <label for="uname">NinthArt账号</label><br>
+                            <input type="text" id="uname" /><br>
+                            <label for="upwd">密码</label><br>
+                            <input type="password" id="upwd" /><br>
+                            <input type="checkbox" id="remember" />
+                            <label for="remember">在这台电脑上记住我</label>
+                        </div>
+                        <div class="login_right">
+                            <h2 class="head_text">创建</h2><br>
+                            <p>一个免费的新帐户</p><br>
+                            <p>欢迎免费加入及轻松使用。继续创建
+                                NinthArt 帐户并获取 NinthArt - 适合 PC 和
+                                Mac 玩家的前沿数字解决方案。</p>
+                        </div>
+                        <div class="button_bottom">
+                            <button class="login_button" onclick="login()">登录</button>
+                            <button class="reg_button"><a href="register.html">加入NinthArt</a></button>
+                        </div>
+                        <table></table>
+                    </div>
+                    <a href="" style="color: white;font-size: 12px;">忘记密码？</a>
+                    <div class="rightcol">
+                        <div class="right_content">
+                            <div class="right_text">
+                                <table></table>
+                                <ul>为什么加入NinthArt
+                                    <li>购买和下载完整零售游戏</li>
+                                    <li>加入 NinthArt 社区</li>
+                                    <li>游戏时与好友聊天</li>
+                                    <li>在任何电脑上都能玩</li>
+                                    <li>安排游戏、比赛或 LAN 聚会</li>
+                                    <li>获取自动游戏更新以及更多！</li>
+                                </ul>
+                                <img src="img/why_join_preview.png">
+                            </div>
+                        </div>
+                        <div id="hidde" class="hidde">
+                            <a href="">了解更多NinthArt的相关信息</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 页尾 -->
+            <div id="footer" class="text-style">
+                <table></table>
+                <div class="footer_content">
+                    <div class="footer_logo">
+                        <img src="img/logo.png" alt="logo">
+                    </div>
+                    <div class="footer_text size12-8f98A0">
+                        ©2020 NinthArt。保留所有权利。所有商标均为其在NinthArt/地区的各自持有者所有。
+                        <div class="a-text-style">
+                            参考及借鉴网站（所有解释权归NinthArt所有）
+                            <a href="https://www.3dmgame.com/" target="_blank">3DMGame</a>
+                            &nbsp;|&nbsp;
+                            <a href="https://store.steampowered.com/" target="_blank">Steam</a>
+                            &nbsp;|&nbsp;
+                            <a href="https://www.gamersky.com/" target="_blank">游民星空</a>
+                            &nbsp;|&nbsp;
+                            <a href="https://www.17173.com/" target="_blank">17173</a>
+                        </div>
+                    </div>
+                    <div class="NinthArt_links a-text-style">
+                        <a href="">关于NinthArt</a>
+                        &nbsp;&nbsp;
+                        <span class="Thank">网页作者联系方式 phone : 13637401397 &nbsp;&nbsp;
+                            Wechat : a04192715</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<script src="script/axiosInterceptors.js" type="text/javascript" charset="utf-8"></script>
+        <script src="script/vue.js" type="text/javascript" charset="utf-8"></script>
+        <script src="script/login.js" type="text/javascript" charset="utf-8"></script>
+    </body>
 </html>

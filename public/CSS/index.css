@@ -239,18 +239,17 @@ div.Rotation_chart_one {
 	background-image: url(../img/background-image/background_maincap_2.jpg);
 	background-repeat: no-repeat;
 	background-position: top right;
+    transition: opacity 400ms;
 	opacity: 1;
 }
-
-.carousel_content .carousel_bgimg:not(.no_paging)>* {
+.carousel_content .carousel_bgimg:not(.no_paging){
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity 400ms;
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 400ms;
 }
-
 .Rotation_chart_content {
 	width: 950px;
 	margin: 0 auto;
@@ -263,8 +262,10 @@ div.Rotation_chart_one {
 }
 
 .carousel_img {
+    position: relative;
 	width: 620px;
 	height: 355px;
+    margin-right: 10px;
 }
 
 .carousel_right {
@@ -273,18 +274,42 @@ div.Rotation_chart_one {
 	color: #fff;
 }
 
-.carousel_img {
-	margin-right: 10px;
+.carousel_os{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.carousel_os span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+}
+
+.carousel_win{
+    background-image: url(../img/icon_platform_win.png);
+}
+
+.carousel_mac{
+    background-image: url(../img/icon_platform_mac.png);
 }
 
 .carousel_img .screenshot {
-	width: 630px;
+	width: 625px;
 	height: 353px;
 	background-size: cover;
 	background-position: center center;
 	position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 300ms;
 	z-index: 10;
-	box-shadow: 0 0 10px 0 #000000;
+    box-shadow: 0 0 10px 0 #000000;
+}
+.carousel_img .screenshot.focus{
+    opacity: 1;
+    transition: none;
 }
 
 .black_box {
@@ -326,13 +351,16 @@ div.Rotation_chart_one {
 	box-sizing: border-box;
 }
 
-.screenshots>div>div {
+.screenshots .sm_bgimg {
 	width: 162px;
 	height: 69px;
 	background-size: cover;
 	background-position: center center;
 	display: inline-block;
 	opacity: 0.6;
+}
+.screenshots .sm_bgimg:hover{
+    opacity: 1;
 }
 
 .reason {
@@ -358,33 +386,38 @@ div.Rotation_chart_one {
 	background: none;
 }
 
-div.indicators {
-	text-align: center;
+.indicators_content{
+    text-align: center;
+    height: 40px;
 }
-
-.indicators>div {
-	display: inline-block;
+.indicators_content>div {
+    display: inline-block;
+    cursor: pointer;
 	width: 15px;
 	height: 9px;
 	background-color: hsla(202, 60%, 100%, 0.2);
-	cursor: pointer;
+    transition: background-color 200ms;
 	border-radius: 3px;
-	margin: 12px 0px;
+	margin: 12px 2px;
 }
 
-.indicators>div:hover {
-	background-color: hsla(202, 60%, 100%, 0.3);
+.indicators_content > div.focus{
+    background-color: hsla(202,60%,100%,0.4);
+}
+.indicators_content>div:not(.focus):hover {
+	background-color: hsla(202,60%,100%,0.3);
 }
 
 .arrow_left {
 	position: absolute;
 	left: -50px;
-	top: 122px;
+	top: 35%;
 	background: linear-gradient(to right, rgba(0, 0, 0, 0.3)5%,
 		rgba(0, 0, 0, 0) 95%);
 	width: 23px;
 	height: 36px;
 	padding: 36px 11px;
+    z-index: 100;
 }
 
 .arrow_left>div {
@@ -405,7 +438,7 @@ div.indicators {
 .arrow_right {
 	position: absolute;
 	right: -46px;
-	top: 122px;
+	top: 35%;
 	background: linear-gradient(to left, rgba(0, 0, 0, 0.3)5%,
 		rgba(0, 0, 0, 0) 95%);
 	width: 23px;
@@ -444,15 +477,33 @@ div.indicators {
 	position: relative;
 	height: 390px;
 }
-
+.carousel_item > div:not(.focus){
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms;
+}
 .carousel_container .carousel_item>* {
 	display: flex;
+    transition: opacity 300ms;
 }
 
 .carousel_container .carousel_item>*>div {
 	margin-right: 11px;
 }
-
+.carousel_item .specials_target{
+    display: inline-block;
+    width: 306px;
+    background-image: url(../img/background-image/background_spotlight.jpg);
+    margin-bottom: 15px;
+}
+.specials_target img{
+    width: 100%;
+    height: 140px;
+    vertical-align: top;
+}
 .carousel_two_area {
 	background-image: url(../img/background-image/background_spotlight.jpg);
 	height: 390px;
@@ -460,7 +511,9 @@ div.indicators {
 	position: relative;
 	overflow: hidden;
 }
-
+.for_container{
+    position: relative;
+}
 .carousel_two_img {
 	width: 306px;
 	overflow: hidden;
@@ -481,7 +534,8 @@ div.indicators {
 }
 
 .carousel_price {
-	margin-top: 10px;
+	margin: 5px 5px 5px 0px;
+    float: right;
 }
 
 .discount_pct {
@@ -516,9 +570,9 @@ div.indicators {
 
 .carousel_item .focus .carousel_text_right1 {
 	position: absolute;
-	bottom: 215px;
+	bottom: 0px;
 	background: #abdaf4;
-	padding: 3px 15px;
+	padding: 3px 16px;
 }
 
 .discount_right_price {
@@ -526,10 +580,6 @@ div.indicators {
 	margin: 0px;
 }
 
-.carousel_text_right2 {
-	background: #abdaf4;
-	padding: 3px 15px;
-}
 
 .carousel_text_left {
 	float: left;
@@ -548,7 +598,7 @@ div.indicators {
 
 .allgame_nav {
 	background: linear-gradient(86deg, rgba(30, 46, 82, 0) 6.04%, #253968 39.34%, rgba(30, 46, 82, 0) 100.06%);
-	margin-top: 60px;
+	margin-top: 20px;
 }
 
 .allgame_nav_content {
@@ -611,7 +661,15 @@ div.indicators {
 	height: 20px;
 	background-repeat: no-repeat;
 }
-
+.platform_img_mac{
+    background-image: url(../img/icon_platform_mac.png);
+    vertical-align: bottom;
+    opacity: 0.3;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+}
 .game_tag {
 	white-space: nowrap;
 	color: #384959;
@@ -656,13 +714,17 @@ div.indicators {
 	height: 735px;
 	background: linear-gradient(to right, #95bbd4 5%, #859bac 95%)
 }
-
-.tab_preview {
-	position: absolute;
-	top: 9px;
-	left: 16px;
-	width: 292px;
-	transition: opacity 300ms;
+.tab_preview{
+    opacity: 0;
+    transition: opacity 300ms;
+    position: absolute;
+    top: 9px;
+    left: 16px;
+    width: 292px;
+    pointer-events: auto;
+}
+.tab_preview.focus {
+    opacity: 1;
 }
 
 .tab_preview h2 {
@@ -738,7 +800,6 @@ div.indicators {
 
 .paged_items_paging_pagelink.active {
 	color: #FFFFFF;
-	cursor: default;
 }
 
 .paged_items_paging_pagelink:hover {
@@ -765,4 +826,54 @@ div.indicators {
 .pagebtn:not(.disabled):hover {
 	background-color: #66c0f4;
 	color: #fff;
+}
+.home_banner{
+    margin-top: 50px;
+}
+.home_banner .banner_content{
+    position: relative;
+    width: 940px;
+    height: 350px;
+    margin: 0 auto;
+}
+.banner_flex{
+    display: flex;
+    width: 940px;
+}
+.banner_flex a{
+    display: block;
+    width: 229px;
+}
+.banner_flex a:not(:last-child){
+    margin-right: 8px;
+}
+.banner_flex a img{
+    width: 100%;
+    height: 143px;
+}
+.banner_flex >a .price{
+    position: static;
+    margin-top: -4px;
+    text-align: right;
+    height: 25px;
+    background: linear-gradient( -45deg, rgba(64,121,153,1) 5%,rgba(42,62,89,1) 95%);;
+}
+.price .final_price{
+    display: inline-block;
+    margin: 2px;
+    font-size: 11px;
+    padding:0px 5px;
+    color: #ACDBF5;
+    background-color: rgba(20,31,44,0.4);;
+}
+.banner_bg{
+    position: absolute;
+    top: -55px;
+    left: -70px;
+    margin-top: 10px;
+    width: 1070px;
+    height: 350px;
+    z-index: -1;
+    background-image: url(../img/store_background_english.jpg);
+    background-repeat: no-repeat;
 }

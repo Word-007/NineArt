@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/comm.css" />
+        <link rel="stylesheet" type="text/css" href="css/order.css" />
+        <link rel="icon" href="img/N.ico" type="image/x-icon" />
+        <title>你的订单</title>
+    </head>
+    <body>
+        <div id="app">
+            <div id='top'>
+                <div class="content">
+                    <div class="logo_size">
+                        <a href="index.html">
+                            <img src="img/logo.png" id="logo_img"></a>
+                    </div>
+                    <div class="top_link a-text-style">
+                        <a href="javascript:;" class="four_Navigation">商店</a>
+                        <a href="javascript:;" class="four_Navigation">社区</a>
+                        <a href="javascript:;" class="four_Navigation">关于</a>
+                        <a href="javascript:;" class="four_Navigation">客服</a>
+                    </div>
+                    <div id="login-lang">
+                        <div class="login a-text-style font-size-14px">
+                            <a href="login.html" v-if="!localStorage">登录</a>
+                            <a href="javascript:;" v-else>
+                                <img src="img/user.jpg" class="avatar">&nbsp;
+                                <span v-text="localStorage"></span>
+                            </a>
+                            &nbsp;|&nbsp;
+                            <a href="register.html" v-if="!localStorage">注册</a>
+                            <a href="javascript:;" v-if="localStorage" @click="clearStorage">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home_body">
+                <div class="home_body_NinthArt">
+                    <div class="cart-link" v-if="StorageUid">
+                        <a href="order.html" class="order">我的订单</a>
+                        <a href="cart.html" class="cart">我的购物车</a>
+                    </div>
+                    <div class="NinthArt_content">
+                        <div class='tab' id="shop_tab">
+                            <span class="pulldown">
+                                <a href="javascript:;" class='pulldown_desktop'>你的NinthArt</a>
+                                <span></span>
+                            </span>
+                            <div class="popup" id="shop_popup" style="visibility: visible;top: 35px;left: 0px; display: none;">
+                                <div class="popup_content">
+                                    <a href="index.html" class='popup_item'>商店主页</a>
+                                    <a href="cart.html" class='popup_item'>您的购物车</a>
+                                    <a href="order.html" class='popup_item'>您的订单</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='tab' id="game_tab">
+                            <span class="pulldown">
+                                <a href="apps.html?tid=4" class='pulldown_desktop'>动作游戏</a>
+                                <span></span>
+                            </span>
+                            <div class="popup" id="game_popup" style="visibility: visible;top: 35px;left: 125px; display: none;width: 100px;">
+                                <div class="popup_content">
+                                    <a href="app.html?gid=1" class='popup_item'>只狼</a>
+                                    <a href="apps.html?term=魂" class='popup_item'>魂系列</a>
+                                    <a href="apps.html?term=devil" class='popup_item'>鬼泣系列</a>
+                                    <a href="apps.html?tid=5" class='popup_item'>ARPG</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='tab' id="software_tab">
+                            <span class="pulldown">
+                                <a href="apps.html?tid=2" class='pulldown_desktop'>射击游戏</a>
+                                <span></span>
+                            </span>
+                            <div class="popup" id="software_popup" style="visibility: visible;top: 35px;left: 225px;display: none;">
+                                <div class="popup_content">
+                                    <a href="apps.html?term=cod" class='popup_item'>COD</a>
+                                    <a href="apps.html?tid=3" class='popup_item'>第三人称射击</a>
+                                    <a href="apps.html?tid=7" class='popup_item'>多人在线</a>
+                                    <a href="app.html?gid=22" class='popup_item'>大逃杀</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='tab' id="hardware_tab">
+                            <span class="pulldown">
+                                <a href="apps.html?tid=1" class='pulldown_desktop'>角色扮演</a>
+                                <span></span>
+                            </span>
+                            <div class="popup" id="hardware_popup" style="visibility: visible;top: 35px;left: 325px; display: none;">
+                                <div class="popup_content">
+                                    <a href="app.html?gid=23" class='popup_item'>火炬之光</a>
+                                    <a href="app.html?gid=12" class='popup_item'>暗黑血统</a>
+                                    <a href="apps.html?term=巫师" class='popup_item'>巫师系列</a>
+                                    <a href="apps.html?tid=12" class='popup_item'>黑暗之魂系列</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="apps.html?tid=12" class='tab'><span>硬核游戏</span></a>
+                        <a href="apps.html?tid=6" class='tab'><span>即时战略</span></a>
+                        <div class="Search_box">
+                            <input type="text" v-model="term" placeholder="搜索商店" @keyup="query($event)" onfocus="if(placeholder=='搜索商店'){placeholder=''}"
+                                onblur="if(value==''){placeholder='搜索商店'}" />
+                            <a :href="'apps.html?term='+term" class="Search_img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="order-body">
+                <div class="order-content">
+                    <div class="order-title">
+                        <h1>你的订单列表</h1>
+                    </div>
+                    <div class="order-list">
+                        <a :href="'app.html?gid='+item.ogid" class="order-item" v-for="(item,i) of orders" :key="i">
+                            <div class="item-img">
+                                <img :src="item.index_img">
+                            </div>
+                            <div class="item-title">
+                                <span v-text="item.game_name"></span>
+                            </div>
+                            <div class="item-time">
+                                <span v-text="item.buy_time+'购买'"></span>
+                            </div>
+                            <div class="item-price">
+                                <span v-text="'￥'+item.price"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="footer_space" v-if="orders.length<3"></div>
+        </div>
+        <div id="footer">
+            <div class="footer_content">
+                <div class="footer_logo">
+                    <img src="img/logo.png" alt="logo">
+                </div>
+                <div class="footer_text size12-8f98A0">
+                    ©2020 NinthArt。保留所有权利。所有商标均为其在NinthArt/地区的各自持有者所有。
+                    <div class="a-text-style">
+                        参考及借鉴网站（所有解释权归NinthArt所有）
+                        <a href="https://www.3dmgame.com/">3DMGame</a>
+                        &nbsp;|&nbsp;
+                        <a href="https://store.steampowered.com/">Steam</a>
+                        &nbsp;|&nbsp;
+                        <a href="https://www.gamersky.com/">游民星空</a>
+                        &nbsp;|&nbsp;
+                        <a href="https://www.17173.com/">17173</a>
+                    </div>
+                </div>
+                <div class="NinthArt_links a-text-style">
+                    <a href="javascript:;">关于NinthArt</a>
+                    &nbsp;&nbsp;
+                    <span class="Thank">网页作者联系方式 phone : 13637401397 &nbsp;&nbsp;
+                        Wechat : a04192715</span>
+                </div>
+            </div>
+        </div>
+        <script src="script/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="script/axiosInterceptors.js" type="text/javascript" charset="utf-8"></script>
+        <script src="script/vue.js" type="text/javascript" charset="utf-8"></script>
+        <script src="script/order/order.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>

@@ -1,2 +1,4 @@
-node_modules/
-publioc/img/
+
+/node_modules
+/dist
+

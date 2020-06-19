@@ -7,6 +7,7 @@ let pool = mysql.createPool({
 	password:'',
 	database:'ninthart',
 	connectionLimit:15,
+    multipleStatements:true
 })
 
 module.exports = pool;

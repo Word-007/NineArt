@@ -1,0 +1,163 @@
+
+body{
+	position: relative;
+	min-height: 780px;
+}
+.h1_title{
+	width: 940px;
+	margin: 0 auto;
+}
+.h1_title h1{
+	font-size: 48px;
+	color: #fff;
+	font-weight: normal;
+	margin: 20px 0px;
+}
+
+.all_nav_left_content {
+	position: relative;
+	width: 940px;
+	margin: 0 auto;
+	padding: 20px 16px;
+}
+
+.tab_item {
+	position: relative;
+	display: block;
+	background: rgba(0, 0, 0, 0.2);
+	height: 69px;
+	margin-bottom: 5px;
+	padding-left: 200px;
+}
+
+.tab_item:hover {
+	margin-right: -14px;
+	padding-right: 14px;
+	background: linear-gradient(to right, #c6e6f8 5%, #95bcd3 95%);
+}
+
+.tab_item:hover .item_game_name,
+.tab_item:hover .discount_final_price {
+	color: #000000;
+}
+
+.tab_item_img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 184px;
+	height: 69px;
+	line-height: 69px;
+}
+
+.tab_item .item_content {
+	padding-top: 7px;
+}
+
+.item_game_name {
+	color: #c7d5e0;
+	font-size: 15px;
+	font-family: arial;
+	line-height: 18px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: color 0.25s;
+}
+.is_mac,.is_win{
+    opacity: 0.3;
+}
+.game_tag {
+	white-space: nowrap;
+	color: #384959;
+	line-height: 20px;
+	font-size: 12px;
+}
+
+.tab_item_discount {
+	margin-top: 10px;
+	float: right;
+	margin-right: 16px;
+	width: 120px;
+	text-align: right;
+	position: relative;
+}
+
+.discount_pct {
+	color: #a4d007;
+	background: #4c6b22;
+	display: inline-block;
+	font-size: 26px;
+	padding: 0 5px;
+	line-height: 34px;
+}
+
+.discount_price {
+	background-color: rgba(0, 0, 0, 0.6);
+	line-height: 13px;
+	padding: 4px 10px 4px 7px;
+	display: inline-block;
+	vertical-align: bottom;
+	text-align: right;
+	margin-left: -5px;
+}
+
+.discount_original_price {
+	font-size: 11px;
+	color: #7193a6;
+}
+
+.discount_final_price {
+	color: #ACDBF5;
+	font-size: 13px;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.tab_item_discount .discount_pct {
+	float: left;
+	font-size: 14px;
+	padding: 0 4px;
+	margin-top: 8px;
+	line-height: 18px;
+}
+
+.tab_item_discount .discount_price {
+	background: none;
+}
+.page_tag{
+	display: flex;
+	background: rgba(0, 0, 0, 0.2);
+	font-size: 12px;
+	color: #3B6E8C;
+	padding: 5px 5px;
+	position: relative;
+}
+.page_tag .page_tagLeft{
+	margin-left: 10px;
+}
+.page_tagRight{
+	position: absolute;
+	right: 0;
+}
+.page_tagRight span{
+	margin: 0 3px;
+	cursor: pointer;
+}
+.prev_button,.next_button{
+	display: inline-block;
+	height: 17px;
+	line-height: 17px;
+	background-color: rgba( 103, 193, 245, 0.2 );
+	border-radius: 3px;
+	padding: 0px 16px;
+}
+.prev_button:hover,.next_button:hover{
+	background-color: #66c0f4;
+	color: #fff;
+}
+.Page_description{
+    text-align: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
